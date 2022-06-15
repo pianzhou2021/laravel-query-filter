@@ -1,0 +1,38 @@
+{
+  "name": "pianzhou/laravel-query-filter",
+  "description": "This is laravel extension packages",
+  "keywords": ["laravel", "query", "filter", "psr-3"],
+  "homepage": "https://github.com/pianzhou2021/laravel-query-filter",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Pian Zhou",
+      "email": "pianzhou2021@163.com",
+      "homepage": "https://github.com/pianzhou2021/laravel-query-filter"
+    }
+  ],
+  "require": {
+    "php": ">=7.2"
+  },
+  "suggest": {
+  },
+  "autoload": {
+    "psr-4": {"Pianzhou\\Laravel\\Query\\Filter\\": "src/"}
+  },
+  "autoload-dev": {
+  },
+  "provide": {
+    "psr/log-implementation": "1.0.0 || 2.0.0 || 3.0.0"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.x-dev"
+    }
+  },
+  "config": {
+    "lock": false,
+    "sort-packages": true,
+    "platform-check": false
+  }
+}
