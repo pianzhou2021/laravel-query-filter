@@ -16,17 +16,27 @@ Pianzhou\Laravel\Query\Filter\ServiceProvider::class,
 ```
 Demo：
 ```
+// demo one
 DemoModel::filter($request->get('id'), function(int $value) {
         $this->where('id', 'like', $value);
-    }, \Pianzhou\Laravel\Query\Filter\Filter::MODE_EMPTY);
-    
-    
+    }, \Pianzhou\Laravel\Query\Filter\Filter::MODE_NULL);
+
+// demo two
+DemoModel::filters($request->only('id'))->get();
+
+// demo three
+DemoModel::filters($request->only('id'), function (\Pianzhou\Laravel\Query\Filter\Filter $filter) {
+    $filter->where('id', 'like')
+        ->where('name', 'like');
+})->get();
+
+// demo four
 DemoModel::filters($request->only('id'), function (\Pianzhou\Laravel\Query\Filter\Filter $filter) {
     $filter->when('id', function (int $value) {
             $this->where('id', 'like', $value);
-        }, \Pianzhou\Laravel\Query\Filter\Filter::MODE_EMPTY)
+        }, \Pianzhou\Laravel\Query\Filter\Filter::MODE_NULL)
     ->when('name', function (string $value) {
         $this->where('name', 'like', $value);
-    }, \Pianzhou\Laravel\Query\Filter\Filter::MODE_EMPTY);
+    }, \Pianzhou\Laravel\Query\Filter\Filter::MODE_NULL);
 })->get();
 ```
